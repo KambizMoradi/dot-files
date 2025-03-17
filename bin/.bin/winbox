@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+wine ~/.local/winbox64.exe
+
