@@ -1,0 +1,31 @@
+#!/usr/bin/sh
+
+notify-send "Low" "Test low" -u low
+notify-send "Normal" "Test normal" -u normal
+notify-send "Critical" "Test critical" -u critical
+
+notify-send "Low" "Test1 low" -u low
+notify-send "Normal" "Test1 nnormalnormalnormalnormalnormalnormalormal" -u normal
+notify-send "Critical" "Test1 critical" -u critical
+
+notify-send "Low" "Test2 lownormalnormalnormalnormal" -u low
+notify-send "Normal" "Test2 normnormalnormalnormalal" -u normal
+notify-send "Critical" "Test2 critical" -u critical
+
+notify-send "Low" "Test3 low" -u low
+notify-send "Normal" "Test3 normal" -u normal
+notify-send "Critical" "Test3 criticalnormalnormalnormalnormal" -u critical
+
+notify-send "Low" "Test4 low" -u low
+notify-send "Normal" "Test4 normal" -u normal
+notify-send "Critical" "Test4 critical" -u critical
+
+notify-send "Low" "Test5 lownormalnormalnormalnormalnormalnormalnormalnormalnormalnormalnormalnormal" -u low
+notify-send "Normal" "Test5 normal" -u normal
+notify-send "Critical" "Test5 critical" -u critical
+
+notify-send "Low" "Test6 low" -u low
+notify-send "Normal" "Test6 normal" -u normal
+notify-send "Critical" "Test6 critical" -u critical
+
+
