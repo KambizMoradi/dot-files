@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+rsl=$(docker compose --file ~/Documents/Repositories/TestLab/nexus.local/docker-compose.yaml down 2>&1)
+if [ $? -eq 0 ]; then
+	notify-send "Nexus Down" "$rsl" --urgency=low --expire-time=6000
+else
+	notify-send "Nexus Down" "$rsl" --urgency=critical
+fi
+

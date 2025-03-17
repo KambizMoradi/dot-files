@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+rsl=$(docker compose --file ~/Documents/Repositories/TestLab/nexus.local/docker-compose.yaml up --detach 2>&1)
+
+if [ $? -eq 0 ]; then
+	notify-send "Nexus Up" "$rsl" --urgency=low --expire-time=6000
+	notify-send "Nexus Server" "<a href=\"http://nexus.local:8081/\">nexus.local:8081</a>" --expire-time=10000
+else
+	notify-send "Nexus Up" "$rsl" --urgency=critical
+fi
+

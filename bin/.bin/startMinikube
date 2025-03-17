@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+notif_time=8000
+minikube_status=$(minikube status)
+
+if [ $(echo "$minikube_status" | grep Running | wc -l ) -eq 3 ]; then
+	notify-send "minikube is up" "$(minikube status)" --urgency=low --expire-time=$notif_time
+else
+	notify-send "starting minikube" --urgency=low --expire-time=$notif_time
+	rsl=$(minikube start --insecure-registry='nexus.local:8082')
+	notify-send "Minikube Up" "$rsl" --urgency=normal --expire-time=$notif_time
+
+	minikube_status=$(minikube status)
+	notify-send "minikube is up" "$(minikube status)" --urgency=low --expire-time=$notif_time
+fi

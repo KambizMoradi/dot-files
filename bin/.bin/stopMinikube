@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+notif_time=8000
+minikube_status=$(minikube status)
+
+if [ $(echo "$minikube_status" | grep Stopped | wc -l ) -eq 4 ]; then
+	notify-send "minikube stopped" "$(minikube status)" --urgency=low --expire-time=$notif_time
+else
+	notify-send "stopping minikube" --urgency=low --expire-time=$notif_time
+	rsl=$(minikube stop)
+	notify-send "minikube stopped" "$rsl" --urgency=normal --expire-time=$notif_time
+fi

@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+notif_time=8000
+
+notify-send "deleteing minikube" --urgency=low --expire-time=$notif_time
+rsl=$(minikube delete)
+notify-send "minikube deleted" "$(printf "$rsl")" --urgency=low --expire-time=$notif_time
