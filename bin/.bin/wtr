@@ -1,0 +1,7 @@
+lat=34.32
+lan=47.07
+curl v2.wttr.in/$lat,$lan
+# curl v3.wttr.in/$lat,$lan
+curl wttr.in/$lat,$lan
+# curl wttr.in/kermanshah.sxl
+
