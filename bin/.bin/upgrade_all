@@ -1,0 +1,61 @@
+#!/usr/bin/sh
+
+show_time=3000 # mili seconds
+
+clear
+# Clear Unneeded dependencies
+echo ------------------------------- Clear Unneeded Dependencies From Pacman
+sudo rm -f /var/lib/pacman/db.lck
+sudo pacman -Rs --noconfirm $(pacman -Qdtq)
+if [[ "$?" == "0" ]]; then
+  notify-send "Not Needed Pacman Packages Cleared" --urgency=low --expire-time=$show_time
+else
+  notify-send "Cannot Clear Not Needed Pacman Packages" --expire-time=$show_time
+fi
+
+#yes|yay -Rs $(yay -Qdtq)
+echo -----------------------------------------------------------------------
+# Clear cache
+echo ------------------------------- Clearing Cache From Pacman
+sudo pacman -Scc --noconfirm
+if [[ "$?" == "0" ]]; then
+  notify-send "Pacman Cache Cleared" --urgency=low --expire-time=$show_time
+else
+  notify-send "Cannot Clear Pacman Cashe" --urgency=critical
+fi
+echo ------------------------------- Update keyring
+sudo pacman -Sy --noconfirm archlinux-keyring
+if [[ "$?" == "0" ]]; then
+  notify-send "archlinux-keyring reinstalled" --urgency=low --expire-time=$show_time
+else
+  notify-send "Cannot install archlinux-keyring" --urgency=critical
+fi
+echo -----------------------------------------------------------------------
+echo ------------------------------- Clearing Cache From Yay
+yay -Scc --noconfirm
+if [[ "$?" == "0" ]]; then
+  notify-send "Yay Cache Cleared" --urgency=low --expire-time=$show_time
+else
+  notify-send "Cannot Clear Yay Cache" --urgency=critical
+fi
+echo -----------------------------------------------------------------------
+
+# Upgrade
+echo ------------------------------- Upgrading Pacman
+sudo pacman -Syyuu --noconfirm
+if [[ "$?" == "0" ]]; then
+  notify-send "Pacman Updated" --urgency=low --expire-time=$show_time
+else
+  notify-send "Cannot Update Pacman" --urgency=critical
+fi
+echo -----------------------------------------------------------------------
+sh ~/Documents/Repositories/.dotfiles/X11/X11_setting_mouse.sh
+echo ------------------------------- Upgrading Yay
+yay -Syyuu --noconfirm
+if [[ "$?" == "0" ]]; then
+  notify-send "Yay Updated" --urgency=low --expire-time=$show_time
+else
+  notify-send "Cannot Update Yay" --urgency=critical
+fi
+echo -----------------------------------------------------------------------
+sh ~/Documents/Repositories/.dotfiles/X11/X11_setting_mouse.sh
