@@ -43,7 +43,7 @@ local function compile_latex_file()
     vim.cmd("w") -- Save the file
     local filepath = vim.fn.expand("%:p") -- Get the full path of the current file
     local filename = vim.fn.expand("%:r") -- Get the file name without extension
-    local cmd = string.format('pdflatex "%s" && open "%s.pdf"', filepath, filename) -- Build the command
+    local cmd = string.format('pdflatex "%s" && zathura "%s.pdf"', filepath, filename) -- Build the command
     open_external_terminal(cmd) -- Open external terminal and run the command
   else
     print("Not a LaTeX file!") -- Notify the user if it's not a LaTeX file
