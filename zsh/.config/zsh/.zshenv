@@ -77,7 +77,7 @@ export _ZO_MAXAGE=10000
 export _ZO_RESOLVE_SYMLINKS=0
 
 # hledger
-export LEDGER_FILE="$HOME"/Documents/Repositories/termux/.local/share/hledger.journal
+export LEDGER_FILE="$HOME"/Documents/termux/.local/share/hledger.journal
 
 # gtk theme
 export GTK_THEME=Adwaita:dark
