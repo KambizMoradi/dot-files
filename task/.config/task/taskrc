@@ -25,3 +25,5 @@ news.version=99.0.0
 #include solarized-light-256.theme
 #include no-color.theme
 
+sync.local.server_dir=\/home\/kambiz\/Documents\/termux\/.task
+recurrence=on
