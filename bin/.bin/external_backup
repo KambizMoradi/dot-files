@@ -14,6 +14,7 @@ if [[ "$?" == "0" ]]; then
     --progress \
     --delete \
     --exclude '/home/lost+found' \
+    --exclude '/home/kambiz/.bin/' \
     --exclude '/home/kambiz/.cache' \
     --exclude '/home/kambiz/.pki' \
     --exclude '/home/kambiz/.config' \
