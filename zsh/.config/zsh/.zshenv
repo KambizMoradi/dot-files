@@ -27,9 +27,6 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 # pythonrc
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 
-# xorg-xauth
-#export XAUTHORITY="$XDG_STATE_HOME/Xauthority"
-
 # wine
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 
@@ -89,4 +86,5 @@ export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
 
 #X11
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
