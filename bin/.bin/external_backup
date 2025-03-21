@@ -13,16 +13,8 @@ if [[ "$?" == "0" ]]; then
     --partial \
     --progress \
     --delete \
-    --exclude '/home/lost+found' \
-    --exclude '/home/kambiz/.bin/' \
-    --exclude '/home/kambiz/.cache' \
-    --exclude '/home/kambiz/.pki' \
-    --exclude '/home/kambiz/.config' \
-    --exclude '/home/kambiz/.local/*/Telegram*' \
-    --exclude '*mozilla*' \
-    --exclude '*Brave*' \
-    --exclude '/home/kambiz/Downloads/' \
-    /home \
+    "$HOME/Documents" \
+    "$HOME/media" \
     $dir_to_mount
 
   if [[ "$?" == "0" ]]; then
