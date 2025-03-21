@@ -5,7 +5,7 @@
 [gpg]
 	format = ssh
 [gpg "ssh"]
-	allowedSignersFile = /home/kambiz/.ssh/allowed_signers
+	allowedSignersFile = $HOME/.ssh/allowed_signers
 [commit]
 	gpgsign = true
 [log]
