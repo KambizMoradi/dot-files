@@ -3,7 +3,7 @@ dir_to_mount=/External_backup_HDD
 sudo mount UUID=a6476fe5-5afc-48c3-87a8-b246335a729a $dir_to_mount
 if [[ "$?" == "0" ]]; then
   notify-send "External Drive mounted to $dir_to_mount" -u low
-  rsync \
+  sudo rsync \
     --archive \
     --verbose \
     --acls \
