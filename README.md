@@ -5,8 +5,8 @@
 
 ```bash
 # to install all
-stow */ --target=$HOME
+stow */ --dotfiles --target=$HOME
 
 # to install zsh
-stow zsh
+stow zsh --dotfiles
 ```
