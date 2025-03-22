@@ -1,5 +1,6 @@
 super + a
 	anki
+
 super + f
     firefox https://divar.ir/chat &; firefox https://web.whatsapp.com/
 
@@ -31,15 +32,11 @@ super + b
 Scroll_Lock
     passmenu -b -i -f -l 5 -nb black -nf white -sf white -sb red
 
-#scrot --quality 100 --select 'media/Pictures/screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png' -e 'nautilus ~/Pictures/screenshots;'
 @Print
-    scrot --silent --ignorekeyboard --quality 100 --select 'media/Pictures/screenshots/%Y-%m-%d-%H-%M-%S.png' -e 'xclip -selection clipboard -t image/png -i ~/media/Pictures/screenshots/%Y-%m-%d-%H-%M-%S.png;'
+    scrot --silent --ignorekeyboard --quality 100 --select "$screenshots_directory/%Y-%m-%d-%H-%M-%S.png" -e "xclip -selection clipboard -t image/png -i $screenshots_directory/%Y-%m-%d-%H-%M-%S.png;"
 
 super + space
-    sh ~/.config/sxhkd/change_key_layout.sh
-
-#super + r
-#    st ranger
+    sh $change_key_layout
 
 #################################### EXTERNAL KEYBOARD
 

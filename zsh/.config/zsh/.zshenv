@@ -4,6 +4,9 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
+# private variables
+source $XDG_DATA_HOME/myvars.env
+
 # zsh setting
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 
@@ -19,11 +22,6 @@ export FZF_DEFAULT_OPTS='--reverse'
 # npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
-# bat theme
-# export BAT_THEME="TwoDark"
-
-########################################################
-# CLEAN HOME DIRECTORY
 # pythonrc
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 
@@ -72,9 +70,6 @@ export _ZO_EXCLUDE_DIRS="$HOME"
 export _ZO_FZF_OPTS=""
 export _ZO_MAXAGE=10000
 export _ZO_RESOLVE_SYMLINKS=0
-
-# hledger
-export LEDGER_FILE="$HOME"/Documents/termux/.local/share/hledger.journal
 
 # gtk theme
 export GTK_THEME=Adwaita:dark

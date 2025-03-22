@@ -1,6 +1,5 @@
 # [Created by task 3.1.0 11/5/2024 23:19:19]
-#data.location=/home/kambiz/.task
-data.location=~/.local/share/task
+data.location=$XDG_DATA_HOME/task
 #news.version=3.3.0
 news.version=99.0.0
 
@@ -25,5 +24,5 @@ news.version=99.0.0
 #include solarized-light-256.theme
 #include no-color.theme
 
-sync.local.server_dir=\/home\/kambiz\/Documents\/termux\/.task
+sync.local.server_dir=$termux_location/.task
 recurrence=on
