@@ -1,17 +1,12 @@
 super + a
 	anki
 
+# browser
+super + b
+    run_brave.sh
+
 super + f
-    firefox https://divar.ir/chat &; firefox https://web.whatsapp.com/
-
-super + g
-    brave https://github.com/KambizMoradi
-
-super + t
-    brave https://translate.google.com/
-
-super + d
-    brave https://divar.ir/s/iran/computers &;brave https://divar.ir/s/kermanshah/computers &; brave https://divar.ir/chat &
+    run_firefox.sh
 
 alt + p
     dmenu_run -b -i -f -l 10 -nb black -nf white -sf white
@@ -25,10 +20,6 @@ super + z
 super + p
     pavucontrol
 
-# browser
-super + b
-    brave
-
 Scroll_Lock
     passmenu -b -i -f -l 5 -nb black -nf white -sf white -sb red
 
@@ -41,8 +32,6 @@ super + space
 #################################### EXTERNAL KEYBOARD
 
 # browser for external keyboard
-XF86HomePage
-    brave
 
 # Music Player
 XF86Tools
