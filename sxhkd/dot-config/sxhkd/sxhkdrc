@@ -1,12 +1,19 @@
-super + a
-	anki
-
 # browser
 super + b
     run_brave.sh
 
 super + f
     run_firefox.sh
+
+# clipboard
+super + c
+    copy_clipboard.sh
+
+super + v
+    paste_clipboard.sh
+
+super + a
+	anki
 
 alt + p
     dmenu_run -b -i -f -l 10 -nb black -nf white -sf white
