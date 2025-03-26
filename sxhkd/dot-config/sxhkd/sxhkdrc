@@ -16,7 +16,7 @@ super + a
 	anki
 
 alt + p
-    dmenu_run -b -i -f -l 10 -nb black -nf white -sf white
+    dmenu_run -n -b -i -f -l 10 -nb black -nf white -sf white
 
 super + o
     obsidian
@@ -28,7 +28,7 @@ super + p
     pavucontrol
 
 Scroll_Lock
-    passmenu -b -i -f -l 5 -nb black -nf white -sf white -sb red
+    passmenu -n -b -i -f -l 5 -nb black -nf white -sf white -sb red
 
 @Print
     scrot --silent --ignorekeyboard --quality 100 --select "$screenshots_directory/%Y-%m-%d-%H-%M-%S.png" -e "xclip -selection clipboard -t image/png -i $screenshots_directory/%Y-%m-%d-%H-%M-%S.png;"
