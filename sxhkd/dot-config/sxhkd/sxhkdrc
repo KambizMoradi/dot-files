@@ -25,9 +25,6 @@ super + z
     zotero
 
 super + p
-    pavucontrol
-
-Scroll_Lock
     passmenu -n -b -i -f -l 5 -nb black -nf white -sf white -sb red
 
 @Print
@@ -39,27 +36,10 @@ super + space
 #################################### EXTERNAL KEYBOARD
 
 # browser for external keyboard
-
-# Music Player
-XF86Tools
-    quodlibet
-
-XF86AudioPlay
-    quodlibet --play-pause
-
-XF86AudioNext
-    quodlibet --next
-
-XF86AudioPrev
-    quodlibet --previous
-
-XF86AudioStop
-    quodlibet --stop
-
 # Volume Control
-XF86AudioRaiseVolume
+alt + F12
     amixer -c 1 set Master 4+
 
-XF86AudioLowerVolume
+alt + F11
     amixer -c 1 set Master 4-
 
