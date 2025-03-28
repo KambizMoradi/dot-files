@@ -34,7 +34,7 @@ Scroll_Lock
     scrot --silent --ignorekeyboard --quality 100 --select "$screenshots_directory/%Y-%m-%d-%H-%M-%S.png" -e "xclip -selection clipboard -t image/png -i $screenshots_directory/%Y-%m-%d-%H-%M-%S.png;"
 
 super + space
-    sh $change_key_layout
+    change_key_layout.sh
 
 #################################### EXTERNAL KEYBOARD
 
