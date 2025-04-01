@@ -1,6 +1,6 @@
-source $XDG_CONFIG_HOME/X11/X11_setting_mouse.sh
-source $XDG_CONFIG_HOME/X11/X11_setting_display.sh
-source $XDG_CONFIG_HOME/X11/X11_setting_wallpapers.sh
+config_mouse.sh
+config_display.sh
+config_wallpapers.sh
 
 pkill ssh-agent
 eval "$(ssh-agent)"
