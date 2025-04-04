@@ -22,6 +22,9 @@ export FZF_DEFAULT_OPTS='--reverse'
 # npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
+# python
+export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
+
 # pythonrc
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 
