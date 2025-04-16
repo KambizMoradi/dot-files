@@ -12,7 +12,7 @@ slstatus &
 #xcompmgr &
 
 killall unclutter
-unclutter -root -idle 4 -jitter 5 &
+unclutter -root -idle 2 -jitter 5 &
 
 killall sxhkd
 sxhkd &

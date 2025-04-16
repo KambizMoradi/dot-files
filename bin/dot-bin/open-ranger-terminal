@@ -1,0 +1,3 @@
+#!/bin/sh
+# Launches the terminal defined in $TERMINAL, then runs ranger inside it
+$TERMINAL -e ranger "$@"
