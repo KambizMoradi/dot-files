@@ -38,8 +38,8 @@ super + space
 # browser for external keyboard
 # Volume Control
 alt + F12
-    amixer -c 1 set Master 4+
+    config_volume.sh + 10
 
 alt + F11
-    amixer -c 1 set Master 4-
+    config_volume.sh - 10
 
