@@ -3,23 +3,11 @@
 WINIT_X11_SCALE_FACTOR = "1"
 
 [font]
-size = 16.0
-
-[font.bold]
-family = "monospace"
-style = "Bold"
-
-[font.bold_italic]
-family = "monospace"
-style = "Bold Italic"
-
-[font.italic]
-family = "monospace"
-style = "Italic"
-
-[font.normal]
-family = "monospace"
-style = "Regular"
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+size = 16.5  # or any size you prefer
 
 [window]
 opacity = 0.9
