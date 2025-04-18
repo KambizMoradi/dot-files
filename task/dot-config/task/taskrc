@@ -26,3 +26,17 @@ news.version=99.0.0
 
 sync.local.server_dir=$termux_location/.task
 recurrence=on
+
+# change proiorities from H,M,L, to 5,4,3,2,1,0
+uda.priority.values=5,4,3,2,1,
+
+urgency.uda.priority.5.coefficient=10
+urgency.uda.priority.4.coefficient=8
+urgency.uda.priority.3.coefficient=6.0
+urgency.uda.priority.2.coefficient=3.9
+urgency.uda.priority.1.coefficient=1.8
+urgency.uda.priority..coefficient=0
+
+color.uda.priority.4=color255
+color.uda.priority.3=color250
+color.uda.priority.2=color245
