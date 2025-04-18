@@ -40,3 +40,11 @@ urgency.uda.priority..coefficient=0
 color.uda.priority.4=color255
 color.uda.priority.3=color250
 color.uda.priority.2=color245
+
+# obsidian daily
+report.obsidian_daily.labels=Description,Project,P,Created,Completed,Deps,Tags,R,Due
+report.obsidian_daily.columns=description,project,priority,entry.relative,end.relative,depends,tags,recur.indicator,due
+report.obsidian_daily.filter=status:completed -WAITING
+report.obsidian_daily.sort=end+,priority-,urgency-
+
+
