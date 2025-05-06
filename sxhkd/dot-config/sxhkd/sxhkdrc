@@ -24,6 +24,9 @@ super + o
 super + z
     zotero
 
+super + m
+    sync_neomutt.sh
+
 super + p
     passmenu -n -b -i -f -l 5 -nb black -nf white -sf white -sb red
 
