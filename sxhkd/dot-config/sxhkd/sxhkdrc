@@ -31,7 +31,7 @@ super + p
     passmenu -n -b -i -f -l 5 -nb black -nf white -sf white -sb red
 
 @Print
-    scrot --silent --ignorekeyboard --quality 100 --select "$screenshots_directory/%Y-%m-%d-%H-%M-%S.png" -e "xclip -selection clipboard -t image/png -i $screenshots_directory/%Y-%m-%d-%H-%M-%S.png;"
+    screenshot.sh
 
 super + space
     change_key_layout.sh
