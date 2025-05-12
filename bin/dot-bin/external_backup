@@ -1,4 +1,6 @@
 #!/usr/bin/sh
+pacman -Qqm >$cave_local_directory/yay_packages.txt
+comm -23 <(pacman -Qqe | sort) <(pacman -Qqm | sort) >$cave_local_directory/pacman_packages.txt
 dir_to_mount=/External_backup_HDD
 sudo mount UUID=$External_backup_hdd_uuid $dir_to_mount
 if [[ "$?" == "0" ]]; then
