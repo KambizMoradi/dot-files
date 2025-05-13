@@ -3,11 +3,13 @@
 set -e
 
 # Directory to store recordings
-RECORDINGS_DIR="$HOME/recording"
+RECORDINGS_DIR="$recordings_directory"
 FILE_NAME_FILE="/tmp/recordeding_file_name.txt"
 STATE_FILE="/tmp/recording_stat.txt" # Track the current mode (recording/playing)
 
-MODE="record"
+REC="⏺ REC"
+PLAY="▶ PLAY"
+STOP="⏹ STOP"
 
 PLAY_LOOP_PID=""
 PLAY_LOOP_PID_FILE="/tmp/play_loop_pid.txt"
@@ -20,8 +22,8 @@ trap cleanup INT
 cleanup() {
   stop_playing
   stop_recording
-  notify-send "⛔ No More Recording" -u normal -r $NOTIFY_ID -t 3000
-  echo -e "\n⛔ Exiting... cleaning up."
+  notify-send "$STOP" -u normal -r $NOTIFY_ID -t 3000
+  echo -e "$STOP"
   exit 0
 }
 
@@ -33,8 +35,8 @@ get_timestamp() {
 start_recording() {
   echo "recording" >"$STATE_FILE" # Save state
   pkill paplay 2>/dev/null || true
-  notify-send "⏺ REC" -u critical -r $NOTIFY_ID -t $NOTIFY_TIME
-  echo "⏺ Recording... (Press [SPACE] to stop and play)"
+  notify-send "$REC" -u critical -r $NOTIFY_ID -t $NOTIFY_TIME
+  echo -e "\e[1;37;41m$REC\e[0m"
 
   TIMESTAMP=$(get_timestamp)
   AUDIO_FILE="$RECORDINGS_DIR/$TIMESTAMP.wav"
@@ -51,8 +53,8 @@ stop_recording() {
 start_playing_loop() {
   echo "playing" >"$STATE_FILE"
 
-  notify-send "▶ PLAY" -u low -r $NOTIFY_ID -t $NOTIFY_TIME
-  echo "🔊 Playing on loop... (Press [SPACE] to stop and record)"
+  notify-send "$PLAY" -u low -r $NOTIFY_ID -t $NOTIFY_TIME
+  echo -e "\e[1;37;42m$PLAY\e[0m"
 
   pkill parecord 2>/dev/null || true
   AUDIO_FILE=$(cat "$FILE_NAME_FILE")
@@ -98,7 +100,7 @@ toggle_mode() {
 # Main logic
 if [[ -z "$1" ]]; then
   # No argument, start recording
-  echo "Press [SPACE] to record"
+  echo "Press [SPACE] to toggle $REC/$PLAY"
 
   # Main loop: listen for keypresses
   while true; do
