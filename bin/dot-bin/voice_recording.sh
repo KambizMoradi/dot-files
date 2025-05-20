@@ -11,6 +11,9 @@ REC="⏺ REC"
 PLAY="▶ PLAY"
 STOP="⏹ STOP"
 
+PRE_TRIM=0.2
+POST_TRIM=-0.0
+
 PLAY_LOOP_PID=""
 PLAY_LOOP_PID_FILE="/tmp/play_loop_pid.txt"
 
@@ -36,7 +39,7 @@ start_recording() {
   echo "recording" >"$STATE_FILE" # Save state
   pkill paplay 2>/dev/null || true
   notify-send "$REC" -u critical -r $NOTIFY_ID -t $NOTIFY_TIME
-  echo -e "\e[1;37;41m$REC\e[0m"
+  echo -e -n "\e[1;37;41m$REC\e[0m "
 
   TIMESTAMP=$(get_timestamp)
   AUDIO_FILE="$RECORDINGS_DIR/$TIMESTAMP.wav"
@@ -54,7 +57,7 @@ start_playing_loop() {
   echo "playing" >"$STATE_FILE"
 
   notify-send "$PLAY" -u low -r $NOTIFY_ID -t $NOTIFY_TIME
-  echo -e "\e[1;37;42m$PLAY\e[0m"
+  echo -e "\e[1;37;42m$PLAY\e[0m "
 
   pkill parecord 2>/dev/null || true
   AUDIO_FILE=$(cat "$FILE_NAME_FILE")
@@ -82,7 +85,7 @@ toggle_mode() {
       # Trim first and last 200ms of the recording
       TRIMMED_FILE="/tmp/voice_loop_trimmed.wav"
       AUDIO_FILE=$(cat "$FILE_NAME_FILE")
-      sox "$AUDIO_FILE" "$TRIMMED_FILE" trim 0.35 -0.0
+      sox "$AUDIO_FILE" "$TRIMMED_FILE" trim $PRE_TRIM $POST_TRIM
       mv "$TRIMMED_FILE" "$AUDIO_FILE"
       start_playing_loop
     elif [[ "$state" == "playing" ]]; then
@@ -100,7 +103,7 @@ toggle_mode() {
 # Main logic
 if [[ -z "$1" ]]; then
   # No argument, start recording
-  echo "Press [SPACE] to toggle $REC/$PLAY"
+  echo -e "\e[1;37;41m[SPACE]: $REC\e[0m \e[1;37;42m[SPACE]: $PLAY\e[0m  [CTRL+c]: $STOP"
 
   # Main loop: listen for keypresses
   while true; do
