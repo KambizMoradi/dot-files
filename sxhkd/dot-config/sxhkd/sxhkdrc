@@ -52,3 +52,9 @@ alt + F12
 alt + F11
     config_volume.sh - 10
 
+# brightness
+XF86MonBrightnessUp
+    set_display_brightness.sh $main_display $(echo "$(cat /tmp/display_brightness) + 0.1" | bc)
+
+XF86MonBrightnessDown
+    set_display_brightness.sh $main_display $(echo "$(cat /tmp/display_brightness) - 0.1" | bc)
