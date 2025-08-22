@@ -28,10 +28,10 @@ super + m
     sync_neomutt.sh
 
 super + r
-    voice_recording.sh toggle
+    voice_recording.sh toggle_record
 
 super + R
-    voice_recording.sh stop
+    voice_recording.sh toggle_play
 
 super + p
     passmenu -n -b -i -f -l 5 -nb black -nf white -sf white -sb red

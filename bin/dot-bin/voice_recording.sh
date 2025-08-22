@@ -7,9 +7,10 @@ RECORDINGS_DIR="$recordings_directory"
 FILE_NAME_FILE="/tmp/recordeding_file_name.txt"
 STATE_FILE="/tmp/recording_stat.txt" # Track the current mode (recording/playing)
 
-REC="⏺ REC"
-PLAY="▶ PLAY"
-STOP="⏹ STOP"
+REC="󰑊"
+PLAY="󰐊"
+PAUSE="󰏤"
+STOP="󰓛"
 
 PRE_TRIM=0.2
 POST_TRIM=-0.0
@@ -75,9 +76,10 @@ stop_playing() {
   echo "stopped" >"$STATE_FILE"
   pkill paplay 2>/dev/null || true
   pkill parecord 2>/dev/null || true
+  notify-send "$PAUSE" -u normal -r $NOTIFY_ID
 }
 
-toggle_mode() {
+toggle_record() {
   if [[ -f "$STATE_FILE" ]]; then
     state=$(cat "$STATE_FILE")
     if [[ "$state" == "recording" ]]; then
@@ -100,6 +102,27 @@ toggle_mode() {
   fi
 }
 
+toggle_play() {
+  if [[ -f "$STATE_FILE" ]]; then
+    state=$(cat "$STATE_FILE")
+    if [[ "$state" == "recording" ]]; then
+      stop_recording
+      # Trim first and last 200ms of the recording
+      TRIMMED_FILE="/tmp/voice_loop_trimmed.wav"
+      AUDIO_FILE=$(cat "$FILE_NAME_FILE")
+      sox "$AUDIO_FILE" "$TRIMMED_FILE" trim $PRE_TRIM $POST_TRIM
+      mv "$TRIMMED_FILE" "$AUDIO_FILE"
+      start_playing_loop
+    elif [[ "$state" == "playing" ]]; then
+      stop_playing
+    elif [[ "$state" == "stopped" ]]; then
+      start_playing_loop
+    fi
+  else
+    start_recording
+  fi
+}
+
 # Main logic
 if [[ -z "$1" ]]; then
   # No argument, start recording
@@ -109,14 +132,17 @@ if [[ -z "$1" ]]; then
   while true; do
     IFS= read -rsn1 key
     if [[ "$key" == " " ]]; then
-      toggle_mode
+      toggle_record
     fi
   done
-elif [[ "$1" == "toggle" ]]; then
+elif [[ "$1" == "toggle_record" ]]; then
   # Toggle behavior (start recording, or stop and start playing)
-  toggle_mode
-elif [[ "$1" == "stop" ]]; then
+  toggle_record
+elif [[ "$1" == "toggle_play" ]]; then
   # Stop all processes
+  # cleanup
+  toggle_play
+elif [[ "$1" == "stop" ]]; then
   cleanup
 else
   echo "Usage: $0 {toggle|stop}"
