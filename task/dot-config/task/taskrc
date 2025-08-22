@@ -48,4 +48,4 @@ report.obsidian_daily.columns=description,project,priority,entry.relative,end.re
 report.obsidian_daily.filter=status:completed -WAITING
 report.obsidian_daily.sort=end+,priority-,urgency-
 
-
+confirmation=no
